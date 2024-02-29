@@ -1,0 +1,87 @@
+.nav{
+    width: 100%;
+    height: 82px;
+    background-color: indigo;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title{
+    color: white;
+    font-size: 42px;
+    font-weight: bold;
+    padding-left: 22px;
+    text-shadow: 2px 2px 5px black;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #45303a27, 0 0 40px #e60073, 0 0 50px #58414c, 0 0 60px #0000000e, 0 0 70px #1b031c00;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+.divSearch{
+    width: 450px;
+    height: 33px;
+}
+.buttonHeader{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 180px;
+}
+.buttonHeader>div{
+    margin-right: 22px;
+    cursor: pointer;
+}
+.admin{
+    text-align: center;
+    width: 60px;
+    height: 46px;
+    background-color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    color: indigo;
+}
+.divAdmin{
+    border: 1px solid black;
+    height: 82px;
+}
+.card,.allMovies{
+    color: white;
+    font-size: 16px;
+}
+.admin>ul{
+    position:absolute;
+    right: 2px;
+    background-color: white;
+    text-align: end;
+    border: 1px solid lightgray;
+}
+.admin>ul>li{
+    list-style-type: none;
+    margin: 6px;
+}
+.admin>ul :hover{
+    background-color: indigo;
+    color: white;
+}
+@media only screen and (max-width: 850px) {
+    .divSearch {
+        width: 270px;
+        height: 29px;
+    }
+}

@@ -1,0 +1,130 @@
+<div class="bodyAddMovie">
+    <div>
+        <h1>Add Movie</h1>
+        <form #movieformRef="ngForm" (ngSubmit)="Submit()" class="formAddMovie">
+            <div>
+                <div>
+                    <div>
+                        <label>
+                            Name:<br>
+                            <input type="text" placeholder="enter name movie" name="nameMovie" #nameMovieRef= "ngModel" required
+                            [minlength]="2" [maxlength]="25" [(ngModel)]="newMovie.name"/>
+                        </label>    
+                    </div>
+                    <div *ngIf="nameMovieRef.touched && !nameMovieRef.valid" class="errors">
+                        <div *ngIf="nameMovieRef.errors?.['required']">
+                            This field is required.
+                        </div>
+                        <div *ngIf="nameMovieRef.errors?.['minlength']">
+                           The movie name must be at least 2 characters.
+                        </div>
+                        <div *ngIf="nameMovieRef.errors?.['maxlength']">
+                            The movie name can not be at greater then 25 characters.
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>
+                                Genre:<br>
+                                <input type="text" placeholder="enter genre movie" name="genre" #genreMovieRef="ngModel"
+                                [(ngModel)]="newMovie.genre" required/>
+                                <!-- <select [(ngModel)]="newMovie.genre" name="genre" #genreMovieRef="ngModel" required>
+                                    <option value="" disabled selected hidden>Select a genre</option>
+                                    <option *ngFor="let movie of movies" [value]="movie.genre">{{movie.genre}}</option>
+                                </select> -->
+                            </label>   
+                        </div>
+                        <div *ngIf="genreMovieRef.touched && !genreMovieRef.valid || submitted">
+                            <div *ngIf="genreMovieRef.errors?.['required']" class="errors">
+                                Please select the genre.
+                            </div>
+                        </div><br>
+                        <div>
+                            <label>
+                                Cinema:<br>
+                                <input type="text" placeholder="enter cinema movie" name="cinema" #cinemaMovieRef="ngModel"
+                                [(ngModel)]="newMovie.cinema" required/>
+                                <!-- <select [(ngModel)]="newMovie.cinema" name="cinema" #cinemaMovieRef="ngModel" required>
+                                    <option value="" disabled selected hidden>Select a cinema</option>
+                                    <option *ngFor="let movie of movies" [value]="movie.cinema">{{movie.cinema}}</option>
+                                </select> -->
+                            </label>    
+                        </div>
+                        <div *ngIf="cinemaMovieRef.touched && !cinemaMovieRef.valid || submitted">
+                            <div *ngIf="cinemaMovieRef.errors?.['required']" class="errors">
+                                Please select the cinema.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label>
+                            Summary:<br>
+                            <textarea placeholder="enter the summary" [(ngModel)]="newMovie.summary" name="summary"
+                            #summaryMovieRef="ngModel" required [minlength]="5" [maxlength]="1050">
+                            </textarea>
+                        </label>
+                        <div *ngIf="summaryMovieRef.touched && !summaryMovieRef.valid || submitted" class="errors">
+                            <div *ngIf="summaryMovieRef.errors?.['required']">
+                                This field is required.
+                            </div>
+                            <div *ngIf="summaryMovieRef.errors?.['minlength']">
+                               The movie summary must be at least 5 characters.
+                            </div>
+                            <div *ngIf="summaryMovieRef.errors?.['maxlength']">
+                                The movie summary can not be at greater then 150 characters.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label>
+                            View Limit:<br>
+                            <input type="number" name="viewLimit" #viewLimitRef="ngModel" [(ngModel)]="newMovie.viewLimit"
+                            required [min]="3" [max]="30"/>
+                        </label>
+                        <div *ngIf="viewLimitRef.touched && !viewLimitRef.valid || submitted" class="errors">
+                            <div *ngIf="viewLimitRef.errors?.['required']">
+                                This field is required.
+                            </div>
+                            <div *ngIf="viewLimitRef.errors?.['min']">
+                                The view limit must be at least 3 number.
+                            </div>
+                            <div *ngIf="viewLimitRef.errors?.['max']">
+                                The view limit can not be at greater then 30 number.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label>
+                            Premiere Date:<br>
+                            <input type="date" name="premiereDate" #premiereDateRef="ngModel" [(ngModel)]="newMovie.premiereDate"
+                            required />
+                        </label>
+                        <div *ngIf="premiereDateRef.touched && !premiereDateRef.valid || submitted" class="errors">
+                            <div *ngIf="premiereDateRef.errors?.['required']">
+                                This field is required.
+                            </div>
+                            <div *ngIf="!isValidDateSelected()">
+                                Please select a valid premiere date (not greater than today).
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label>
+                            Src Image:<br>
+                            <input type="text" name="srcImage" #srcImageRef="ngModel" [(ngModel)]="newMovie.srcImage"
+                            required/>
+                        </label>
+                        <div *ngIf="srcImageRef.touched && !srcImageRef.valid || submitted" class="errors">
+                            <div *ngIf="srcImageRef.errors?.['required']">
+                                This field is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" (click)="errorsSubmitted()" [disabled]="!movieformRef.valid">Add Movie</button>
+                    </div>   
+                </div>     
+            </div>
+        </form>    
+    </div>
+</div>

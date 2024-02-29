@@ -1,0 +1,90 @@
+.bodymovie{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.divMovie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    width: 900px;
+    height: 180px;
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation: movieAnimation 1s;
+}
+.divMovie>div{
+    height: 180px;
+}
+.movie{
+    display: flex;
+    width: 45%;
+    height: 100%;
+    text-align: start;
+    cursor: pointer;
+}
+.movie>div{ 
+   padding-left: 10px;
+   padding-right: 10px;
+}
+.movie>div>span{
+    margin: 6px;
+    display: block;
+}
+.Image{
+    width: 28%;
+    height: 100%;
+    cursor: pointer;
+}
+.buttonDelete{
+    width: 28%;
+    height: 180px;
+}
+.buttonDelete>button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.buttonDelete>button :hover{
+    background-color: lightgray;
+    fill: black;
+}
+.movie>div{
+    width: 50%;
+}
+@keyframes movieAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    40% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .divMovie {
+        width: 600px;
+        height: 160px;
+        margin: 10px;
+    }
+    .image ,.buttonDelete{
+        height: 160px;
+    }
+    .divMovie>div {
+        height: 160px;
+    }
+    .movie>div{ 
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .movie>div>span{
+        margin: 1px;
+    }
+}

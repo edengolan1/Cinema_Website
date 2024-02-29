@@ -1,0 +1,8 @@
+<div>
+  <input type="text" class="search" placeholder="search movie..." [(ngModel)]="searchTerm" (input)="searchMovies(searchTerm)"/>
+  <ul class="listSearch">
+    <li *ngFor="let movie of movies" (click)="getMovieById(movie)">
+      {{ movie.name }}
+    </li>
+  </ul>  
+</div>

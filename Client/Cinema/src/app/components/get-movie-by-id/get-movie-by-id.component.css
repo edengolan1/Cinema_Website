@@ -1,0 +1,54 @@
+.bodyMovieById{
+    width: 100%;
+    height: 600px;
+    border: 1px solid lightgray;
+}
+.movieById{
+    width: 100%;
+    height: 600px;
+    border: 1px solid lightgray;
+    display: flex;
+}
+.movieById>div{
+    width: 50%;
+    height: 100%;
+}
+.image{
+    display: flex;
+    justify-content: end;
+}
+.image>div{
+    width: 600px;
+    height: 600px;
+}
+.nameMovie{
+    text-decoration: underline;
+}
+.detailsMovie>p{
+    font-size: 17px;
+}
+.detailsMovie{
+    margin: 11px;
+}
+.addtocard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+.buttonAdd{
+    border: none;
+    width: 250px;
+    height: 52px;
+    font-size: 15px;
+    background-color: indigo;
+    color: white;
+    cursor: pointer;
+}
+.addtocard :hover{
+    background-color: lightgray;
+    color: indigo;
+}
+img{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

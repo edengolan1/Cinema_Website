@@ -1,0 +1,113 @@
+<h1>Tap on the movie you want to edit!</h1>
+<div *ngIf="movies" class="divEdit">
+    <form #editForm = "ngForm" (ngSubmit)="detailsOfMovie(editForm,movies.id,movieNameInput.value,movieGenreInput.value,movieCinemaInput.value,movieSummaryInput.value,movieViewLimitInput.value
+    ,moviePremiereDateInput.value,movieSrcImageInput.value)">
+        <div class="edit">
+            <div class="detailsedit">
+                <div>
+                    <div>
+                        id: {{movies.id}}
+                    </div>
+                    <div>
+                        Name:
+                        <input type="text" placeholder="Enter movie name..." name="nameMovie" [value]="movies.name" #movieNameInput = "ngModel"
+                        [(ngModel)]="movies.name" required [minlength]="2" [maxlength]="25"/>
+                    </div>
+                    <div *ngIf="movieNameInput.touched && !movieNameInput.valid" class="errors">
+                        <div *ngIf="movieNameInput.errors?.['required']">
+                            This field is required.
+                        </div>
+                        <div *ngIf="movieNameInput.errors?.['minlength']">
+                           The movie name must be at least 2 characters.
+                        </div>
+                        <div *ngIf="movieNameInput.errors?.['maxlength']">
+                            The movie name can not be at greater then 25 characters.
+                        </div>
+                    </div>
+                    <div>
+                        Genre:
+                        <input type="text" placeholder="Enter movie genre..." name="genreMovie" [value]="movies.genre" #movieGenreInput = "ngModel"
+                        [(ngModel)]="movies.genre" required/>
+                    </div>
+                    <div *ngIf="movieGenreInput.touched && movieGenreInput.invalid">
+                        <div *ngIf="movieGenreInput.errors?.['required']" class="errors">
+                            Please select the genre.
+                        </div>
+                    </div>
+                    <div>
+                        Cinema:
+                        <input type="text" placeholder="Enter movie cinema..." name="cinemaMovie" [value]="movies.cinema" #movieCinemaInput="ngModel"
+                        [(ngModel)]="movies.cinema" required/>
+                    </div>
+                    <div *ngIf="movieCinemaInput.touched && movieCinemaInput.invalid">
+                        <div *ngIf="movieCinemaInput.errors?.['required']" class="errors">
+                            Please select the cinema.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        Summary:
+                        <input type="text" placeholder="Enter movie summary..." name="summaryMovie" [value]="movies.summary" #movieSummaryInput="ngModel"
+                        [(ngModel)]="movies.summary" required [minlength]="5" [maxlength]="1050"/>
+                    </div>
+                    <div *ngIf="movieSummaryInput.touched && !movieSummaryInput.valid" class="errors">
+                        <div *ngIf="movieSummaryInput.errors?.['required']">
+                            This field is required.
+                        </div>
+                        <div *ngIf="movieSummaryInput.errors?.['minlength']">
+                           The movie summary must be at least 5 characters.
+                        </div>
+                        <div *ngIf="movieSummaryInput.errors?.['maxlength']">
+                            The movie summary can not be at greater then 1050 characters.
+                        </div>
+                    </div>
+                    <div>
+                        View Limit:
+                        <input type="number" placeholder="Enter movie view limit..." name="viewlimitMovie" [value]="movies.viewLimit" #movieViewLimitInput="ngModel"
+                        [(ngModel)]="movies.viewLimit" required [min]="3" [max]="30"/>
+                    </div>
+                    <div *ngIf="movieViewLimitInput.touched && !movieViewLimitInput.valid" class="errors">
+                        <div *ngIf="movieViewLimitInput.errors?.['required']">
+                            This field is required.
+                        </div>
+                        <div *ngIf="movieViewLimitInput.errors?.['min']">
+                            The view limit must be at least 3 number.
+                        </div>
+                        <div *ngIf="movieViewLimitInput.errors?.['max']">
+                            The view limit can not be at greater then 30 number.
+                        </div>
+                    </div>
+                    <div>
+                        Premiere Date:
+                        <input type="text" placeholder="Enter movie premiere date..." name="dateMovie" [value]="movies.premiereDate" #moviePremiereDateInput="ngModel"
+                        [(ngModel)]="movies.premiereDate" required/>
+                    </div>
+                    <div *ngIf="moviePremiereDateInput.touched && moviePremiereDateInput.invalid" class="errors">
+                        <div *ngIf="moviePremiereDateInput.errors?.['required']">
+                            This field is required.
+                        </div>
+                    </div>
+                    <div>
+                        Path Image:
+                        <input type="text" placeholder="Enter movie src image..." name="srcImageMovie" [value]="movies.srcImage" #movieSrcImageInput="ngModel"
+                        [(ngModel)]="movies.srcImage" required/>
+                    </div>    
+                    <div *ngIf="movieSrcImageInput.touched && movieSrcImageInput.invalid" class="errors">
+                        <div *ngIf="movieSrcImageInput.errors?.['required']">
+                            This field is required.
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="divButton">
+                <div>
+                    <button type="submit">Save</button>
+                </div>
+            </div>
+        </div>    
+    </form>
+</div>
+<app-list-movies [displayGetMovieById]="false"
+(movieClicked)="editMovie($event)"
+class="editmovie"></app-list-movies>

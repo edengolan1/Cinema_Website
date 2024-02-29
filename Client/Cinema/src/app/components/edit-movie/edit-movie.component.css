@@ -1,0 +1,75 @@
+.divEdit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid lightgray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px indigo;
+    color: white;
+}
+.edit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.detailsedit{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 11px;
+}
+.detailsedit>div>div{
+    font-size: 17px;
+    margin: 20px;
+}
+input{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 400px;
+    height: 30px;
+    color: indigo;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+button{
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+    background-color: indigo;
+    color: white;
+    border-radius: 10px;
+    border:none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.divButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    border-radius: 10px;
+}
+.divButton :hover{
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.errors{
+    color: red;
+}
+@media only screen and (max-width: 1100px) {
+    input {
+        width: 300px;
+        height: 25px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    input {
+        width: 170px;
+        height: 20px;
+    }
+}

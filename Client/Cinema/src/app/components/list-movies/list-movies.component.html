@@ -1,0 +1,16 @@
+<div class="bodyMovies">
+    <div *ngFor="let movie of movies" (click)="getMovieById(movie);editMovie(movie);" class="divMovie">
+        <div class="movie">
+            <!-- <p>Id: {{movie.id}}</p> -->
+            <p>Name: {{movie.name}}</p>
+            <p>Cinema: {{movie.cinema}}</p>
+            <p>Genre: {{movie.genre}}</p>
+            <p>Summary: {{movie.summary | lengthSummary : 90}}</p>
+            <p>View Limit: age {{movie.viewLimit}}</p>
+            <p>Premiere Date: {{movie.premiereDate | date:'yyyy-MM-dd'}}</p>
+        </div>
+        <div class="image">
+            <img [src]="movie.srcImage" width="225px" height="280px"/>
+        </div>
+    </div>
+</div>

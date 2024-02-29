@@ -1,0 +1,29 @@
+.search{
+    width: 450px;
+    height: 33px;
+    border-radius: 25px;
+    font-size: 15px;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(250, 245, 245, 0.998), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.listSearch{
+    background-color: white;
+    border-radius: 15px;
+    width: 100%;
+}
+.listSearch>li{
+    list-style-type: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+ul :hover{
+    background-color: indigo;
+    color: white;
+}
+@media only screen and (max-width: 850px) {
+    .search {
+        width: 270px;
+        height: 29px;
+    }
+}

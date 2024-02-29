@@ -1,0 +1,30 @@
+<div class="nav">
+    <div>
+        <span class="title">Cinema</span>
+    </div>
+    <div class="divSearch">
+        <app-search></app-search>
+    </div>
+    <div class="buttonHeader">
+        <div (click)="goToTheAllMovie()" class="allMovies">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" class="bi bi-camera-reels-fill" viewBox="0 0 16 16">
+                <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path d="M9 6a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
+            </svg>
+        </div>
+        <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="41" height="45" fill="white" class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+                <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+            </svg>
+        </div>
+        <div class="admin" (mouseover)="showTheAdmin()">
+            <p>Admin</p>
+            <ul *ngIf="hover">
+                <li (click)="addMovie()">Add Movie</li>
+                <li (click)="editMovie()">Edit Movie</li>
+                <li (click)="DeleteMovie()">Delete Movie</li>
+            </ul>
+        </div>
+    </div>
+</div>
