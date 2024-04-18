@@ -1,6 +1,3 @@
-import { Genre } from "../enums/genre.enum"
-import { Cinema } from "../enums/cinema.enum"
-
 export class Movie{
     constructor(
         public id: number = 0,

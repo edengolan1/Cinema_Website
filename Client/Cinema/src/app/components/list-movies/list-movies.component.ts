@@ -16,6 +16,7 @@ import { EnumToTextPipe } from '../../pipes/enum-to-text.pipe';
 export class ListMoviesComponent {
   @Input() movies: Movie[] = [];
   @Input() displayGetMovieById: boolean = true;
+  @Input() displayDelete: boolean = false;
   @Output() movieClicked: EventEmitter<Movie> = new EventEmitter<Movie>();
   
   constructor(private movieService: MovieService, private router: Router,private viewportScroller: ViewportScroller){}
@@ -34,5 +35,14 @@ export class ListMoviesComponent {
   editMovie(movie: Movie){
     this.movieClicked.emit(movie);
     this.viewportScroller.scrollToPosition([0, 0]);
+  }
+
+  deleteMovie(id: number){
+      this.movieService.deleteMovie(id).subscribe(() => {
+        console.log(`Movie with id ${id} deleted successfully.`);
+        this.router.navigate(['/movies']);
+      }, error => {
+        console.error('Error deleting movie:', error);
+      });
   }
 }

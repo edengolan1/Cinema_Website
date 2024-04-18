@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MovieService {
 
-  constructor(private http: HttpClient ,@Inject (BASE_SERVER_URL) private baseURL: string) { }
+  constructor(private http: HttpClient ,@Inject(BASE_SERVER_URL) private baseURL: string) { }
 
   getmovies(): Observable<Movie[]>{
     return this.http.get(`${this.baseURL}/movies`)

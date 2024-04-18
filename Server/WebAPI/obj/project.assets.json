@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Angular\\projectCinemaAngular\\Server\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Projects\\projectCinemaAngular\\Server\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "C:\\Angular\\projectCinemaAngular\\Server\\WebAPI\\WebAPI.csproj",
+      "projectPath": "C:\\Projects\\projectCinemaAngular\\Server\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\eden9\\.nuget\\packages\\",
-      "outputPath": "C:\\Angular\\projectCinemaAngular\\Server\\WebAPI\\obj\\",
+      "outputPath": "C:\\Projects\\projectCinemaAngular\\Server\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

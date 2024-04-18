@@ -1,16 +1,26 @@
 <div class="bodyMovies">
     <div *ngFor="let movie of movies" (click)="getMovieById(movie);editMovie(movie);" class="divMovie">
-        <div class="movie">
-            <!-- <p>Id: {{movie.id}}</p> -->
-            <p>Name: {{movie.name}}</p>
-            <p>Cinema: {{movie.cinema}}</p>
-            <p>Genre: {{movie.genre}}</p>
-            <p>Summary: {{movie.summary | lengthSummary : 90}}</p>
-            <p>View Limit: age {{movie.viewLimit}}</p>
-            <p>Premiere Date: {{movie.premiereDate | date:'yyyy-MM-dd'}}</p>
-        </div>
-        <div class="image">
-            <img [src]="movie.srcImage" width="225px" height="280px"/>
+        <div class="flip-box">
+            <div class="div-button-delete" *ngIf="displayDelete" (click)="deleteMovie(movie.id)">
+                <button class="button-delete">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="27" fill="white" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="flip-box-inner">
+                <div class="flip-box-front">
+                    <img [src]="movie.srcImage" width="236px" height="290px"/>
+                </div>
+                <div class="flip-box-back">
+                    <h2>{{movie.name}}</h2>
+                    <p><span class="title-details-movie">Cinema: </span> {{movie.cinema}}</p>
+                    <p><span class="title-details-movie">Genre: </span> {{movie.genre}}</p>
+                    <p><span class="title-details-movie">Summary: </span> {{movie.summary | lengthSummary : 70}}</p>
+                    <p><span class="title-details-movie">View Limit: </span>age {{movie.viewLimit}}</p>
+                    <p><span class="title-details-movie">Premiere Date: </span> {{movie.premiereDate | date:'yyyy-MM-dd'}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

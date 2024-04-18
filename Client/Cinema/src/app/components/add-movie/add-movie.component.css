@@ -48,6 +48,9 @@ input, select,textarea{
 label{
     font-size: 17px;
 }
+.div-button-submit :hover{
+    background-size: 100% 100%;
+}
 button{
     font-size: 17px;
     cursor: pointer;
@@ -58,6 +61,10 @@ button{
     height: 45px;
     margin-top: 20px;
     border: 1px solid white;
+    background-image: linear-gradient(to right, #333 0%, #333 0%);
+    background-size: 0% 100%; /* Start with 0% width */
+    background-repeat: no-repeat;
+    transition: background-size 0.5s ease;
 }
 @keyframes bounce {
     0% {

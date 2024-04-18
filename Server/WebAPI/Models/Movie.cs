@@ -12,9 +12,13 @@ namespace WebAPI.Models
         [MinLength(2)]
         public string? Name { get; set; }
         [Required]
-        public string? Genre { get; set; } /*= { "RomanticComedy", "Action", "Children", "Comedy", "Dram" };*/
+        [MaxLength(25)]
+        [MinLength(2)]
+        public string? Genre { get; set; } 
         [Required]
-        public string? Cinema { get; set; } /*= { "Jerusalem", "TelAviv", "Heifa", "RishonLezion", "Eilat" };*/
+        [MaxLength(25)]
+        [MinLength(2)]
+        public string? Cinema { get; set; } 
         [Required]
         [MaxLength(1050)]
         [MinLength(5)]

@@ -6,7 +6,6 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Movie } from '../../models/movie.model';
 import { MovieService } from '../../Services/movie.service';
 import { Router } from '@angular/router';
-import { Genre } from '../../enums/genre.enum';
 
 @Component({
   selector: 'app-add-movie',

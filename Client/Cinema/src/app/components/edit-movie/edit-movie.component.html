@@ -1,13 +1,11 @@
-<h1>Tap on the movie you want to edit!</h1>
+
 <div *ngIf="movies" class="divEdit">
+    <h1>Tap on the movie that you want to edit!</h1>
     <form #editForm = "ngForm" (ngSubmit)="detailsOfMovie(editForm,movies.id,movieNameInput.value,movieGenreInput.value,movieCinemaInput.value,movieSummaryInput.value,movieViewLimitInput.value
     ,moviePremiereDateInput.value,movieSrcImageInput.value)">
         <div class="edit">
             <div class="detailsedit">
                 <div>
-                    <div>
-                        id: {{movies.id}}
-                    </div>
                     <div>
                         Name:
                         <input type="text" placeholder="Enter movie name..." name="nameMovie" [value]="movies.name" #movieNameInput = "ngModel"
@@ -27,11 +25,17 @@
                     <div>
                         Genre:
                         <input type="text" placeholder="Enter movie genre..." name="genreMovie" [value]="movies.genre" #movieGenreInput = "ngModel"
-                        [(ngModel)]="movies.genre" required/>
+                        [(ngModel)]="movies.genre" required [minlength]="2" [maxlength]="25"/>
                     </div>
-                    <div *ngIf="movieGenreInput.touched && movieGenreInput.invalid">
-                        <div *ngIf="movieGenreInput.errors?.['required']" class="errors">
-                            Please select the genre.
+                    <div *ngIf="movieGenreInput.touched && !movieGenreInput.valid" class="errors">
+                        <div *ngIf="movieGenreInput.errors?.['required']">
+                            This field is required.
+                        </div>
+                        <div *ngIf="movieGenreInput.errors?.['minlength']">
+                           The movie genre must be at least 2 characters.
+                        </div>
+                        <div *ngIf="movieGenreInput.errors?.['maxlength']">
+                            The movie genre can not be at greater then 25 characters.
                         </div>
                     </div>
                     <div>
@@ -39,29 +43,19 @@
                         <input type="text" placeholder="Enter movie cinema..." name="cinemaMovie" [value]="movies.cinema" #movieCinemaInput="ngModel"
                         [(ngModel)]="movies.cinema" required/>
                     </div>
-                    <div *ngIf="movieCinemaInput.touched && movieCinemaInput.invalid">
-                        <div *ngIf="movieCinemaInput.errors?.['required']" class="errors">
-                            Please select the cinema.
+                    <div *ngIf="movieCinemaInput.touched && !movieCinemaInput.valid" class="errors">
+                        <div *ngIf="movieCinemaInput.errors?.['required']">
+                            This field is required.
+                        </div>
+                        <div *ngIf="movieCinemaInput.errors?.['minlength']">
+                           The name of the cinema must be at least 2 characters.
+                        </div>
+                        <div *ngIf="movieCinemaInput.errors?.['maxlength']">
+                            The name of the cinema can not be at greater then 25 characters.
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div>
-                        Summary:
-                        <input type="text" placeholder="Enter movie summary..." name="summaryMovie" [value]="movies.summary" #movieSummaryInput="ngModel"
-                        [(ngModel)]="movies.summary" required [minlength]="5" [maxlength]="1050"/>
-                    </div>
-                    <div *ngIf="movieSummaryInput.touched && !movieSummaryInput.valid" class="errors">
-                        <div *ngIf="movieSummaryInput.errors?.['required']">
-                            This field is required.
-                        </div>
-                        <div *ngIf="movieSummaryInput.errors?.['minlength']">
-                           The movie summary must be at least 5 characters.
-                        </div>
-                        <div *ngIf="movieSummaryInput.errors?.['maxlength']">
-                            The movie summary can not be at greater then 1050 characters.
-                        </div>
-                    </div>
                     <div>
                         View Limit:
                         <input type="number" placeholder="Enter movie view limit..." name="viewlimitMovie" [value]="movies.viewLimit" #movieViewLimitInput="ngModel"
@@ -99,6 +93,22 @@
                         </div>
                     </div>
                 </div>    
+            </div>
+            <div>
+                <div class="div-summary">Summary:</div>
+                <textarea placeholder="Enter movie summary..." name="summaryMovie" [value]="movies.summary" #movieSummaryInput="ngModel"
+                [(ngModel)]="movies.summary" required [minlength]="5" [maxlength]="1050" class="textarea-summary"></textarea>
+            </div>
+            <div *ngIf="movieSummaryInput.touched && !movieSummaryInput.valid" class="errors">
+                <div *ngIf="movieSummaryInput.errors?.['required']">
+                    This field is required.
+                </div>
+                <div *ngIf="movieSummaryInput.errors?.['minlength']">
+                   The movie summary must be at least 5 characters.
+                </div>
+                <div *ngIf="movieSummaryInput.errors?.['maxlength']">
+                    The movie summary can not be at greater then 1050 characters.
+                </div>
             </div>
             <div class="divButton">
                 <div>

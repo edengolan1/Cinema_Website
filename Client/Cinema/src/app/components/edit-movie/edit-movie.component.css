@@ -1,14 +1,20 @@
+*{
+    background-color: indigo;
+}
 .divEdit{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     border: 1px solid lightgray;
+    color: whitesmoke;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 h1{
     text-align: center;
     text-decoration: underline;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px indigo;
+    text-shadow: 1px 1px 2px black, 0 0 25px whitesmoke, 0 0 5px indigo;
     color: white;
 }
 .edit{
@@ -26,6 +32,7 @@ h1{
 }
 .detailsedit>div>div{
     font-size: 17px;
+    font-weight: bolder;
     margin: 20px;
 }
 input{
@@ -33,7 +40,24 @@ input{
     border-radius: 10px;
     width: 400px;
     height: 30px;
-    color: indigo;
+    color: whitesmoke;
+    margin-left: 10px;
+    padding: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.div-summary{
+    font-size: 17px;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.textarea-summary {
+    width: 800px;
+    height: 80px;
+    resize: inherit;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    color: whitesmoke;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 button{
@@ -44,6 +68,12 @@ button{
     color: white;
     border-radius: 10px;
     border:none;
+    font-weight: bold;
+    font-size: 14px;
+    background-image: linear-gradient(to right, white 0%, white 0%);
+    background-size: 0% 100%; /* Start with 0% width */
+    background-repeat: no-repeat;
+    transition: background-size 0.5s ease;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .divButton{
@@ -53,10 +83,12 @@ button{
     height: 80px;
     width: 100%;
     border-radius: 10px;
+    margin: 10px;
 }
 .divButton :hover{
-    background-color: lightgray;
     border-radius: 10px;
+    background-size: 100% 100%;
+    color: indigo;
 }
 .errors{
     color: red;

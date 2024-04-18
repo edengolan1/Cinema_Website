@@ -1,12 +1,13 @@
+* {
+    background-color: indigo;
+    color: whitesmoke;
+}
 .bodyMovieById{
     width: 100%;
     height: 600px;
-    border: 1px solid lightgray;
 }
 .movieById{
     width: 100%;
-    height: 600px;
-    border: 1px solid lightgray;
     display: flex;
 }
 .movieById>div{
@@ -15,11 +16,15 @@
 }
 .image{
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: center;
 }
 .image>div{
     width: 600px;
     height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .nameMovie{
     text-decoration: underline;
@@ -28,7 +33,9 @@
     font-size: 17px;
 }
 .detailsMovie{
+    text-align: center;
     margin: 11px;
+    padding-left: 20px;
 }
 .addtocard{
     display: flex;
@@ -40,14 +47,22 @@
     border: none;
     width: 250px;
     height: 52px;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, white 0%, white 0%);
+    background-size: 0% 100%; /* Start with 0% width */
+    background-repeat: no-repeat;
+    transition: background-size 0.5s ease;
     background-color: indigo;
+    border: 1px solid white;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 .addtocard :hover{
-    background-color: lightgray;
     color: indigo;
+    border-radius: 5px;
+    background-size: 100% 100%;
 }
 img{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

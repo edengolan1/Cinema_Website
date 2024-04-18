@@ -27,32 +27,36 @@
                             <label>
                                 Genre:<br>
                                 <input type="text" placeholder="enter genre movie" name="genre" #genreMovieRef="ngModel"
-                                [(ngModel)]="newMovie.genre" required/>
-                                <!-- <select [(ngModel)]="newMovie.genre" name="genre" #genreMovieRef="ngModel" required>
-                                    <option value="" disabled selected hidden>Select a genre</option>
-                                    <option *ngFor="let movie of movies" [value]="movie.genre">{{movie.genre}}</option>
-                                </select> -->
+                                [(ngModel)]="newMovie.genre" required [minlength]="2" [maxlength]="25"/>
                             </label>   
                         </div>
-                        <div *ngIf="genreMovieRef.touched && !genreMovieRef.valid || submitted">
-                            <div *ngIf="genreMovieRef.errors?.['required']" class="errors">
-                                Please select the genre.
+                        <div *ngIf="genreMovieRef.touched && !genreMovieRef.valid" class="errors">
+                            <div *ngIf="genreMovieRef.errors?.['required']">
+                                This field is required.
                             </div>
-                        </div><br>
+                            <div *ngIf="genreMovieRef.errors?.['minlength']">
+                               The movie genre must be at least 2 characters.
+                            </div>
+                            <div *ngIf="genreMovieRef.errors?.['maxlength']">
+                                The movie genre can not be at greater then 25 characters.
+                            </div>
+                        </div><br/>
                         <div>
                             <label>
                                 Cinema:<br>
                                 <input type="text" placeholder="enter cinema movie" name="cinema" #cinemaMovieRef="ngModel"
-                                [(ngModel)]="newMovie.cinema" required/>
-                                <!-- <select [(ngModel)]="newMovie.cinema" name="cinema" #cinemaMovieRef="ngModel" required>
-                                    <option value="" disabled selected hidden>Select a cinema</option>
-                                    <option *ngFor="let movie of movies" [value]="movie.cinema">{{movie.cinema}}</option>
-                                </select> -->
+                                [(ngModel)]="newMovie.cinema" required [minlength]="2" [maxlength]="25"/>
                             </label>    
                         </div>
-                        <div *ngIf="cinemaMovieRef.touched && !cinemaMovieRef.valid || submitted">
-                            <div *ngIf="cinemaMovieRef.errors?.['required']" class="errors">
-                                Please select the cinema.
+                        <div *ngIf="cinemaMovieRef.touched && !cinemaMovieRef.valid" class="errors">
+                            <div *ngIf="cinemaMovieRef.errors?.['required']">
+                                This field is required.
+                            </div>
+                            <div *ngIf="cinemaMovieRef.errors?.['minlength']">
+                               The name of the cinema must be at least 2 characters.
+                            </div>
+                            <div *ngIf="cinemaMovieRef.errors?.['maxlength']">
+                                The name of the cinema can not be at greater then 25 characters.
                             </div>
                         </div>
                     </div>
@@ -120,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="div-button-submit">
                         <button type="submit" (click)="errorsSubmitted()" [disabled]="!movieformRef.valid">Add Movie</button>
                     </div>   
                 </div>     
